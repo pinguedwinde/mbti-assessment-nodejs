@@ -1,0 +1,142 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div *ngIf="score$ | async as score" class="card">
+      <div class="card-body">
+        <h5 class="d-flex justify-content-center text-bold mb-4">
+          Your Personality Information
+        </h5>
+        <div class="d-flex justify-content-between h-30">
+          <p>Extraversion</p>
+          <p>Introversion</p>
+        </div>
+        <div class="progress h-20 mb-4">
+          <div
+            class="progress-bar bg-indigo"
+            role="progressbar"
+            [style.width.%]="score.extraversion"
+            [attr.aria-valuenow]="score.extraversion"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ score.extraversion }}%
+          </div>
+          <div
+            class="progress-bar bg-indigo-light"
+            role="progressbar"
+            [style.width.%]="100 - score.extraversion"
+            [attr.aria-valuenow]="100 - score.extraversion"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ 100 - score.extraversion }}%
+          </div>
+        </div>
+        <div class="d-flex justify-content-between h-30">
+          <p>Intuition</p>
+          <p>Sensing</p>
+        </div>
+        <div class="progress h-20 mb-4">
+          <div
+            class="progress-bar bg-pink"
+            role="progressbar"
+            [style.width.%]="score.intuition"
+            [attr.aria-valuenow]="score.intuition"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ score.intuition }}%
+          </div>
+          <div
+            class="progress-bar bg-pink-light"
+            role="progressbar"
+            [style.width.%]="100 - score.intuition"
+            [attr.aria-valuenow]="100 - score.intuition"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ 100 - score.intuition }}%
+          </div>
+        </div>
+        <div class="d-flex justify-content-between h-30">
+          <p>Feeling</p>
+          <p>Thinking</p>
+        </div>
+        <div class="progress h-20 mb-4">
+          <div
+            class="progress-bar bg-green"
+            role="progressbar"
+            [style.width.%]="score.feeling"
+            [attr.aria-valuenow]="score.feeling"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ score.feeling }}%
+          </div>
+          <div
+            class="progress-bar bg-teal"
+            role="progressbar"
+            [style.width.%]="100 - score.feeling"
+            [attr.aria-valuenow]="100 - score.feeling"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ 100 - score.feeling }}%
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between h-30">
+          <p>Judging</p>
+          <p>Perceiving</p>
+        </div>
+        <div class="progress h-20 mb-4">
+          <div
+            class="progress-bar bg-orange"
+            role="progressbar"
+            [style.width.%]="score.judging"
+            [attr.aria-valuenow]="score.judging"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ score.judging }}%
+          </div>
+          <div
+            class="progress-bar bg-orange-light"
+            role="progressbar"
+            [style.width.%]="100 - score.judging"
+            [attr.aria-valuenow]="100 - score.judging"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ 100 - score.judging }}%
+          </div>
+        </div>
+        <div class="d-flex justify-content-between h-30">
+          <p>Assertive</p>
+          <p>Turbulence</p>
+        </div>
+        <div class="progress h-20 mb-3">
+          <div
+            class="progress-bar bg-cyan"
+            role="progressbar"
+            [style.width.%]="score.assertive"
+            [attr.aria-valuenow]="score.assertive"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ score.assertive }}%
+          </div>
+          <div
+            class="progress-bar bg-cyan-light"
+            role="progressbar"
+            [style.width.%]="score.assertive"
+            [attr.aria-valuenow]="score.assertive"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ 100 - score.assertive }}%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

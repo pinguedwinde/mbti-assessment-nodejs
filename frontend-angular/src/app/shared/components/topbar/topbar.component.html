@@ -1,0 +1,76 @@
+<div class="nav justify-content-center navbar-expand-lg nav-text mb-3">
+  <div class="flex justify-content-center">
+    <nav>
+      <ol class="breadcrumps">
+        <li
+          class="breadcrumps-item"
+          [routerLink]="['/home']"
+          [ngClass]="{ active: (isHomeUrl$ | async) }"
+        >
+          <i class="fas fa-home"></i>
+          Home
+        </li>
+        <li
+          *ngIf="isLoggedIn$ | async"
+          class="breadcrumps-item"
+          [routerLink]="['/mbti/personality-test']"
+          [ngClass]="{ active: (isAssessmentUrl$ | async) }"
+        >
+          <i class="fas fa-book"></i>
+          Take a test
+        </li>
+        <li
+          *ngIf="isLoggedIn$ | async"
+          class="breadcrumps-item"
+          [routerLink]="['/mbti/test-result']"
+          [ngClass]="{ active: (isTestResultUrl$ | async) }"
+        >
+          <i class="fas fa-poll"></i>
+          My Results
+        </li>
+        <li
+          *ngIf="isLoggedIn$ | async"
+          class="breadcrumps-item"
+          [routerLink]="['/mbti/personalities-info']"
+          [ngClass]="{ active: (isPersonalitiesInfoUrl$ | async) }"
+        >
+          <i class="fas fa-users"></i>
+          Personalities
+        </li>
+        <li
+          *ngIf="isLoggedIn$ | async"
+          class="breadcrumps-item"
+          [routerLink]="['/user/profile']"
+          [ngClass]="{ active: (isProfileUrl$ | async) }"
+        >
+          <i class="fas fa-id-badge"></i>
+          Profile
+        </li>
+        <li
+          *ngIf="isLoggedIn$ | async"
+          class="breadcrumps-item"
+          (click)="onLogout()"
+        >
+          <i class="fas fa-sign-out-alt"></i>
+          Logout
+        </li>
+        <li
+          *ngIf="!(isLoggedIn$ | async)"
+          class="breadcrumps-item"
+          [routerLink]="['/auth/login']"
+          [ngClass]="{ active: (isLoginUrl$ | async) }"
+        >
+          Login
+        </li>
+        <li
+          *ngIf="!(isLoggedIn$ | async)"
+          class="breadcrumps-item"
+          [routerLink]="['/auth/register']"
+          [ngClass]="{ active: (isRegisterUrl$ | async) }"
+        >
+          Start
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="container text-dark">
+  <div class="main-body">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="mb-4">
+          <app-personality-info></app-personality-info>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <app-score></app-score>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div
+    class="
+      row row-cols-1 row-cols-md-3 row-cols-lg-3 row-cols-xl-5 row-cols-xxl-5
+      g-4
+    "
+  >
+    <div
+      *ngFor="let personage of personages$ | async"
+      class="col-md-3 col-lg-3"
+    >
+      <app-personage-widget [name]="personage.name" [about]="personage.about">
+      </app-personage-widget>
+    </div>
+  </div>
+</div>
+<div *ngIf="!(score$ | async)" class="container card-container">
+  <div class="card text-center text-dark">
+    <div class="card-header">
+      No result yet
+      <span><i class="fas fa-smile-beam"></i></span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title error-title">You haven't a test result</h5>
+      <p class="card-text error-text mt-5">
+        You need first to take before getting a result. Good luck.
+      </p>
+      <a class="btn btn-primary" [routerLink]="['/mbti/personality-test']">
+        Take a test <span class="ms-2"><i class="fas fa-book"></i></span>
+      </a>
+    </div>
+  </div>
+</div>

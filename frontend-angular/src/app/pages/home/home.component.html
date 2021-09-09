@@ -1,0 +1,29 @@
+<div class="card-container container">
+  <div class="card text-center text-dark">
+    <div class="welcome-traveler">
+      <h5>Welcome Traveler…</h5>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title welcome-title">Ready?</h5>
+      <p class="card-text welcome-text mt-5">
+        Try our tool & discover more about your personality in this rather quick
+        quiz…
+      </p>
+      <a
+        *ngIf="!(isLoggedIn$ | async)"
+        class="btn btn-primary"
+        [routerLink]="['/auth/login']"
+      >
+        Login to take a test
+        <span><i class="fas fa-sign-in-alt ms-1"></i></span>
+      </a>
+      <a
+        *ngIf="isLoggedIn$ | async"
+        class="btn btn-primary"
+        [routerLink]="['/mbti/personality-test']"
+      >
+        Explore your personality <span><i class="fas fa-book ms-1"></i></span>
+      </a>
+    </div>
+  </div>
+</div>

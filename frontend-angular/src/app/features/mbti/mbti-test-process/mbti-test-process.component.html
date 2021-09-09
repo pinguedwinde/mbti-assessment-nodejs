@@ -1,0 +1,129 @@
+<div class="container bg" [ngClass]="display">
+  <div class="row justify-content-lg-center">
+    <div class="col-md-12 col-xl-8">
+      <h1 class="text-center">Explore My Personality</h1>
+      <div class="card text-dark">
+        <h2>
+          Questions {{ (currentPage - 1) * questionsPerPage + 1 }}-{{
+            currentPage * questionsPerPage
+          }}
+        </h2>
+        <div *ngIf="currentPage === 1" class="rectangle center">
+          Good Luck! 🤗
+        </div>
+        <div *ngIf="currentPage === allPages" class="rectangle center">
+          You are almost done! The last straight line! 🎉
+        </div>
+        <div
+          *ngIf="currentPage > 1 && currentPage < allPages"
+          class="rectangle center"
+        >
+          Go ahead! 👍
+        </div>
+        <div
+          *ngIf="this.onMbtiTestProcessError$ | async as error"
+          class="error-message mb-4 align-self-stretch"
+        >
+          {{ error }}
+        </div>
+
+        <div class="card-body my-4">
+          <form [formGroup]="questionnaireForm" (ngSubmit)="onSubmitForm()">
+            <div *ngFor="let question of displayedQuestions">
+              <div class="center question-content">
+                {{ question.content }}
+              </div>
+              <div class="center">
+                <label class="disagree"> Disagree </label>
+                <label class="radio-1 ms-4">
+                  <input
+                    type="radio"
+                    [name]="question.id"
+                    [formControlName]="question.id"
+                    value="1"
+                  />
+                  <span class="checkmark-1"></span>
+                </label>
+                <label class="radio-2">
+                  <input
+                    type="radio"
+                    [name]="question.id"
+                    [formControlName]="question.id"
+                    value="2"
+                  />
+                  <span class="checkmark-1"></span>
+                </label>
+                <label class="radio-3">
+                  <input
+                    type="radio"
+                    [name]="question.id"
+                    [formControlName]="question.id"
+                    value="3"
+                  />
+                  <span class="checkmark-1"></span>
+                </label>
+
+                <label class="radio-0">
+                  <input
+                    type="radio"
+                    [name]="question.id"
+                    [formControlName]="question.id"
+                    value="4"
+                  />
+                  <span class="checkmark-0"></span>
+                </label>
+
+                <label class="radio-3">
+                  <input
+                    type="radio"
+                    [name]="question.id"
+                    [formControlName]="question.id"
+                    value="5"
+                  />
+                  <span class="checkmark-2"></span>
+                </label>
+                <label class="radio-2">
+                  <input
+                    type="radio"
+                    [name]="question.id"
+                    [formControlName]="question.id"
+                    value="6"
+                  />
+                  <span class="checkmark-2"></span>
+                </label>
+                <label class="radio-1">
+                  <input
+                    type="radio"
+                    [name]="question.id"
+                    [formControlName]="question.id"
+                    value="7"
+                  />
+                  <span class="checkmark-2"></span>
+                </label>
+                <label class="agree"> Agree </label>
+              </div>
+              <div class="center mt-3">
+                <hr />
+              </div>
+            </div>
+            <div class="center mt-3">
+              <button
+                *ngIf="this.questionnaireForm.valid"
+                class="submit-button"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+          <app-pagination
+            class="center mt-5"
+            [allPagesNumber]="allPages"
+            (changePage)="onPageChange($event)"
+          >
+          </app-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

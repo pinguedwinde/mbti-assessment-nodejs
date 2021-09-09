@@ -1,0 +1,27 @@
+<div class="card widget h-100">
+  <div class="card-body text-center position-relative">
+    <img
+      src="{{ imageUrl + name.split(' ').join('') }}"
+      alt="Image"
+      class="rounded-circle p-1 bg-gray"
+      width="115"
+    />
+    <div
+      class="
+        mt-3
+        d-flex
+        flex-column
+        justify-content-center
+        align-items-center
+        h-50
+      "
+    >
+      <div class="mb-auto">
+        <h4>{{ name }}</h4>
+      </div>
+      <div class="h-50">
+        <p class="mb-0"><i class="fas fa-smile me-2"></i>{{ about }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+.nav-text {
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: condensed;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: rgba(255, 255, 255, 0.7);
+  height: 60px;
+}
+
+.breadcrumps {
+  margin-top: 15px;
+  height: 30px;
+}
+
+.breadcrumps-item {
+  display: inline-block;
+  transition: font-size 0.5s ease-in-out;
+}
+
+.breadcrumps-item:not(:last-of-type)::after {
+  content: "\2022";
+  margin: 0 10px;
+  color: #ccc;
+}
+
+.breadcrumps-item:hover {
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+}
+
+.active {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  transition: 400ms;
+}
+
+.breadcrumps-item.active:hover {
+  cursor: default;
+}

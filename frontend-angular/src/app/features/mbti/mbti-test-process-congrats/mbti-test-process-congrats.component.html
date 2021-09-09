@@ -1,0 +1,24 @@
+<div class="card-container container">
+  <div class="card text-center text-dark">
+    <div class="card-body">
+      <h5 class="card-title welcome-title">Congrats… 🎉</h5>
+      <p class="card-text welcome-text mt-5">
+        You have reached the end of the test. Congrats…
+      </p>
+      <div class="my-5">
+        <div class="checkmark-circle">
+          <div class="background"></div>
+          <div class="checkmark draw"></div>
+        </div>
+      </div>
+
+      <a
+        class="btn btn-primary result-button"
+        [routerLink]="['/mbti/test-result']"
+      >
+        See your personality test result
+        <span><i class="fas fa-poll ms-1"></i></span>
+      </a>
+    </div>
+  </div>
+</div>

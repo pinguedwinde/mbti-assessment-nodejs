@@ -1,0 +1,40 @@
+<div class="pagination-container">
+  <div
+    *ngIf="firstPageControl"
+    class="pagination-button pagination-page-first"
+    [ngClass]="currentPage === 1 && 'pagination-button--disabled'"
+    (click)="onFirstPage()"
+  >
+    First
+  </div>
+  <div
+    class="pagination-button pagination-page-previous"
+    [ngClass]="currentPage === 1 && 'pagination-button--disabled'"
+    (click)="onPreviousPage()"
+  >
+    Previous
+  </div>
+  <div *ngIf="activePageControl" class="pagination-page-active">
+    <input
+      class="pagination-current-page"
+      (input)="onSetPage($event)"
+      [value]="currentPage"
+    />
+    / <span>{{ allPagesNumber }}</span>
+  </div>
+  <div
+    class="pagination-button pagination-page-next"
+    [ngClass]="currentPage === allPagesNumber && 'pagination-button--disabled'"
+    (click)="onNextPage()"
+  >
+    Next
+  </div>
+  <div
+    *ngIf="lastPageControl"
+    class="pagination-button pagination-page-last"
+    [ngClass]="currentPage === allPagesNumber && 'pagination-button--disabled'"
+    (click)="onLastPage()"
+  >
+    Last
+  </div>
+</div>

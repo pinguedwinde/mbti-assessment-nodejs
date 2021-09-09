@@ -1,0 +1,43 @@
+<div *ngIf="personality$ | async as personality" class="card">
+  <div class="card-body">
+    <hr class="mb-4" />
+    <div class="center">
+      <div class="avatar-circle">
+        <span class="initials">{{
+          personality.personalityType.substring(0, 4) +
+            "-" +
+            personality.personalityType.substring(5)
+        }}</span>
+      </div>
+    </div>
+    <div class="text-center text-sm-right">
+      <div class="text-muted my-3">
+        <small>Taken on {{ takenDate$ | async | date: "medium" }}</small>
+      </div>
+    </div>
+    <hr class="my-4" />
+    <div class="row my-3">
+      <div class="col-sm-4">
+        <h6 class="mb-0">Description</h6>
+      </div>
+      <div class="col-sm-8 text-muted">
+        {{ personality.description }}
+      </div>
+    </div>
+    <hr class="my-4" />
+    <div class="row mb-3">
+      <div class="col-sm-4">
+        <h6 class="mb-0">Profile</h6>
+      </div>
+      <div class="col-sm-8 text-muted">{{ personality.profile }}</div>
+    </div>
+    <hr class="my-4" />
+    <div class="row mb-3">
+      <div class="col-sm-4">
+        <h6 class="mb-0">Group</h6>
+      </div>
+      <div class="col-sm-8 text-muted">{{ personality.group }}</div>
+    </div>
+    <hr class="mt-4" />
+  </div>
+</div>

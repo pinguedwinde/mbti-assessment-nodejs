@@ -1,0 +1,285 @@
+<div class="container text-dark" style="margin-top: 20px">
+  <div class="d-flex justify-content-center">
+    <div class="col-md-7 col-sm-12">
+      <div class="card-group mb-0">
+        <div class="card user_card user-card-register p-2">
+          <div
+            class="
+              d-flex
+              flex-column
+              justify-content-center
+              align-items-center
+              my-5
+            "
+          >
+            <div>
+              <h3>Lunatech MBTI</h3>
+            </div>
+            <div
+              *ngIf="
+                this.registrationForm.valid &&
+                (this.onRegisterError$ | async) as onRegisterError
+              "
+              class="error-message mb-4 align-self-stretch"
+            >
+              {{ onRegisterError }}
+            </div>
+          </div>
+          <div class="d-flex justify-content-center form_container">
+            <form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+              <div class="mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="fas fa-user"></i
+                  ></span>
+                  <input
+                    type="text"
+                    maxlength="30"
+                    class="form-control"
+                    formControlName="firstName"
+                    placeholder="FirstName"
+                    [ngClass]="{
+                      'is-invalid': isFirstNameInvalid,
+                      'is-valid': isFirstNameValid
+                    }"
+                  />
+                  <div
+                    *ngIf="isFirstNameInvalid"
+                    class="invalid-feedback validator-error mt-2"
+                  >
+                    <div *ngIf="firstName.errors?.required">
+                      <i class="fas fa-window-close"></i>&nbsp; FirstName is
+                      required.
+                    </div>
+                    <div *ngIf="firstName.errors?.minlength">
+                      <i class="fas fa-window-close"></i>&nbsp; FirstName must
+                      be at least 3 characters long.
+                    </div>
+                    <div *ngIf="firstName.errors?.pattern">
+                      <i class="fas fa-window-close"></i>&nbsp; Please enter a
+                      valid FirstName.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="fas fa-user"></i
+                  ></span>
+                  <input
+                    type="text"
+                    maxlength="30"
+                    class="form-control"
+                    formControlName="lastName"
+                    placeholder="LastName"
+                    [ngClass]="{
+                      'is-invalid': isLastNameInvalid,
+                      'is-valid': isLastNameValid
+                    }"
+                  />
+                  <div
+                    *ngIf="isLastNameInvalid"
+                    class="invalid-feedback validator-error mt-2"
+                  >
+                    <div *ngIf="lastName.errors?.required">
+                      <i class="fas fa-window-close"></i>&nbsp; LastName is
+                      required.
+                    </div>
+                    <div *ngIf="lastName.errors?.minlength">
+                      <i class="fas fa-window-close"></i>&nbsp; LastName must be
+                      at least 3 characters long.
+                    </div>
+                    <div *ngIf="lastName.errors?.pattern">
+                      <i class="fas fa-window-close"></i>&nbsp; Please enter a
+                      valid lastName.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="fas fa-user"></i
+                  ></span>
+                  <input
+                    type="text"
+                    maxlength="15"
+                    class="form-control"
+                    formControlName="username"
+                    placeholder="Username"
+                    [ngClass]="{
+                      'is-invalid': isUsernameInvalid,
+                      'is-valid': isUsernameValid
+                    }"
+                  />
+                  <div
+                    *ngIf="isUsernameInvalid"
+                    class="invalid-feedback validator-error mt-2"
+                  >
+                    <div *ngIf="username.errors?.required">
+                      <i class="fas fa-window-close"></i>&nbsp; Username is
+                      required.
+                    </div>
+                    <div *ngIf="username.errors?.minlength">
+                      <i class="fas fa-window-close"></i>&nbsp; Username must be
+                      at least 5 characters long.
+                    </div>
+                    <div *ngIf="username.errors?.pattern">
+                      <i class="fas fa-window-close"></i>&nbsp; Please enter a
+                      valid username.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="fas fa-envelope"></i
+                  ></span>
+                  <input
+                    type="text"
+                    maxlength="30"
+                    class="form-control"
+                    formControlName="email"
+                    placeholder="email"
+                    [ngClass]="{
+                      'is-invalid': isEmailInvalid,
+                      'is-valid': isEmailValid
+                    }"
+                  />
+                  <div
+                    *ngIf="isEmailInvalid"
+                    class="invalid-feedback validator-error mt-2"
+                  >
+                    <div *ngIf="email.errors?.required">
+                      <i class="fas fa-window-close"></i>&nbsp; Email is
+                      required.
+                    </div>
+                    <div *ngIf="email.errors?.pattern">
+                      <i class="fas fa-window-close"></i>&nbsp; Please enter a
+                      valid email address as 'user@example.com' .
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="fas fa-unlock"></i
+                  ></span>
+                  <input
+                    type="password"
+                    class="form-control"
+                    formControlName="password"
+                    placeholder="Password"
+                    [ngClass]="{
+                      'is-invalid': isPasswordInvalid,
+                      'is-valid': isPasswordValid
+                    }"
+                  />
+                  <div
+                    *ngIf="isPasswordInvalid"
+                    class="invalid-feedback validator-error mt-2"
+                  >
+                    <div *ngIf="password.errors?.required">
+                      <i class="fas fa-window-close"></i>&nbsp; Password is
+                      required.
+                    </div>
+                    <div *ngIf="password.errors?.hasNumber">
+                      <i class="fas fa-window-close"></i>&nbsp; Must have at
+                      least 1 number!
+                    </div>
+                    <div *ngIf="password.errors?.hasUpperCase">
+                      <i class="fas fa-window-close"></i>&nbsp; Must have at
+                      least one uppercase character!
+                    </div>
+                    <div *ngIf="password.errors?.hasLowerCase">
+                      <i class="fas fa-window-close"></i>&nbsp; Must have at
+                      least one lowercase character!
+                    </div>
+                    <div *ngIf="password.errors?.hasSpecialCharacters">
+                      <i class="fas fa-window-close"></i>&nbsp; Must have at
+                      least one special character!
+                    </div>
+                    <div *ngIf="password.errors?.minlength">
+                      <i class="fas fa-window-close"></i>&nbsp; Must have at
+                      least 8 characters in length!
+                    </div>
+                    <div *ngIf="password.errors?.maxlength">
+                      <i class="fas fa-window-close"></i>&nbsp; Must have at
+                      most 20 characters in length!
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="fas fa-lock"></i
+                  ></span>
+                  <input
+                    type="password"
+                    maxlength="15"
+                    class="form-control"
+                    formControlName="confirmPassword"
+                    placeholder="Confirm Password"
+                    [ngClass]="{
+                      'is-invalid': isConfirmPasswordInvalid,
+                      'is-valid': isConfirmPasswordValid
+                    }"
+                  />
+                  <div
+                    *ngIf="isConfirmPasswordInvalid"
+                    class="invalid-feedback validator-error mt-2"
+                  >
+                    <div *ngIf="confirmPassword.errors?.required">
+                      <i class="fas fa-window-close"></i>&nbsp; Confirm Password
+                      is required.
+                    </div>
+                    <div *ngIf="confirmPassword.errors?.noPassswordMatch">
+                      <i class="fas fa-window-close"></i>&nbsp; Passwords don't
+                      match
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center mt-5 login_container">
+                <button
+                  type="submit"
+                  name="button"
+                  class="btn btn-primary mb-4"
+                  [disabled]="registrationForm.invalid"
+                >
+                  <span>Register</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="card bg-lightgray py-5 d-md-down-none">
+          <div class="card-body text-center my-5">
+            <div class="h-100 d-flex flex-column justify-content-center">
+              <h2>Sign in</h2>
+              <div class="text-center">Already have an account?</div>
+              <button
+                type="button"
+                routerLink="/auth/login"
+                class="btn btn-primary mt-5"
+              >
+                Login!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

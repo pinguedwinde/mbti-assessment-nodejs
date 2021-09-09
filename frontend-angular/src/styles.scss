@@ -1,0 +1,326 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+@import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
+
+@import "~@fontsource/fira-sans"; // Defaults to weight 400.
+
+:root {
+  --font-family: "Fira Sans", sans-serif;
+  --primary: #ea212e;
+  --secondary: #686de0;
+  --accent: #f50057;
+  --lightgray: #ddd;
+  --gray: #cdcde6;
+  --regular: #444;
+  --orange-light: #f9ad5f;
+  --blue-light: #4b81da;
+  --indigo-light: #ac80f4;
+  --purple-light: #ab47bc;
+  --pink-light: #f978a3;
+  --cyan: #006064;
+  --cyan-light: #00acc1;
+}
+
+/**************************************** Debug ***********************************************/
+.d1 {
+  border: 1px solid red;
+}
+
+.d2 {
+  border: 1px solid green;
+}
+
+/************************************************************************************************/
+/************************************** Application THEMING *************************************/
+/************************************************************************************************/
+
+body {
+  font-family: var(--font-family);
+  font-weight: bold;
+  font-stretch: condensed;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  background-image: url("assets/background.svg");
+  background-size: cover;
+  color: #fff;
+}
+
+.fira-sans {
+  font-family: var(--font-family);
+}
+
+.fira-sans-500 {
+  font-family: var(--font-family);
+  font-weight: 500;
+}
+.fira-sans-700 {
+  font-family: var(--font-family);
+  font-weight: 700;
+}
+
+.h-20 {
+  height: 30px;
+}
+
+.h-30 {
+  height: 30px;
+}
+
+.card {
+  border-radius: 0 !important;
+}
+
+.btn {
+  border-radius: 0 !important;
+  min-width: 210px;
+  height: 50px;
+  padding: 1rem 1.5rem 0.5rem 1.5rem !important;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+}
+
+.btn-primary:hover,
+.btn-primary:visited,
+.btn-primary:active,
+.btn-primary:disabled,
+.btn-primary.disabled,
+.btn-primary:focus,
+.btn-primary.focus {
+  background-color: var(--primary);
+}
+
+.btn-secondary:hover,
+.btn-secondary:visited,
+.btn-secondary:active,
+.btn-secondary:disabled,
+.btn-secondary.disabled,
+.btn-secondary:focus,
+.btn-secondary.focus {
+  background-color: var(--secondary);
+}
+
+.form-control:focus {
+  border-color: var(--lightgray) !important;
+  box-shadow: inset 0px 0px 0px 1px var(--lightgray) !important;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.was-validated .form-control:valid,
+.form-control.is-valid {
+  border: 1px solid #bdbdbd;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2300b74a' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") !important;
+}
+
+/************************************************************************************************/
+/************************************** Application THEMING *************************************/
+/************************************************************************************************/
+.bg-lightgray {
+  background-color: var(--lightgray);
+}
+.bg-gray {
+  background-color: var(--gray);
+}
+
+.bg-regular {
+  background-color: var(--regular);
+}
+
+.bg-indigo {
+  background-color: var(--mdb-indigo);
+}
+.bg-indigo-light {
+  background-color: var(--indigo-light);
+}
+.bg-purple {
+  background-color: var(--mdb-purple);
+}
+.bg-purple-light {
+  background-color: var(--purple-light);
+}
+.bg-pink {
+  background-color: var(--mdb-pink);
+}
+.bg-pink-light {
+  background-color: var(--pink-light);
+}
+.bg-red {
+  background-color: var(--mdb-red);
+}
+.bg-orange {
+  background-color: var(--mdb-orange);
+}
+.bg-orange-light {
+  background-color: var(--orange-light);
+}
+.bg-green {
+  background-color: var(--mdb-green);
+}
+.bg-teal {
+  background-color: var(--mdb-teal);
+}
+.bg-blue {
+  background-color: var(--mdb-blue);
+}
+.bg-blue-light {
+  background-color: var(--blue-light);
+}
+.bg-cyan {
+  background-color: var(--cyan);
+}
+.bg-cyan-light {
+  background-color: var(--cyan-light);
+}
+
+/**************************Login***********************/
+.user_card {
+  min-height: 450px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background: #ffffff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+.user-card-register {
+  min-height: 600px;
+}
+
+.login_container {
+  padding: 0 2rem;
+}
+.input-group-text {
+  background: var(--primary) !important;
+  color: white !important;
+  border: 0 !important;
+}
+
+.input-group:not(.has-validation)
+  > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
+.input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n + 3) {
+  border-radius: 0;
+}
+
+.input_user,
+.input_pass:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+
+.validator-error,
+.error-message {
+  border: 0;
+  color: #951d32;
+  background-color: #fed6dd;
+  position: relative;
+  padding: 0.5rem 1.5rem;
+}
+
+.error-message {
+  font-size: 14px;
+  text-align: center;
+  padding: 1.5rem 1.5rem;
+}
+
+.validator-success {
+  border: 0;
+  color: #006e2c;
+  background-color: #ccf1db;
+  position: relative;
+  padding: 0.5rem 1.5rem;
+  width: 100%;
+  font-size: 0.875em;
+}
+
+.form-check-input[type="checkbox"]:checked,
+.form-check-input[type="checkbox"]:focus {
+  background-image: none;
+  background-color: var(--accent);
+}
+
+.form-check-input:checked,
+.form-check-input:focus,
+.form-check-input[type="checkbox"]:checked:focus {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.form-check-input:checked:focus:before {
+  box-shadow: 0px 0px 0px 13px var(--accent);
+  transform: scale(1);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+@mixin avatar($size) {
+  width: $size;
+  height: $size;
+  background-color: var(--mdb-danger);
+  text-align: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+
+  .initials {
+    position: relative;
+    top: $size * 0.25;
+    font-size: $size * 0.25;
+    line-height: $size * 0.5;
+    color: #fff;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+  }
+}
+
+.avatar-circle {
+  @include avatar(120px);
+}
+.avatar-circle-sm {
+  @include avatar(50px);
+}
+.avatar-circle-lg {
+  @include avatar(250px);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/************************ Change autocomplete styles in WebKit *******************/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-text-fill-color: #4f4f4f;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

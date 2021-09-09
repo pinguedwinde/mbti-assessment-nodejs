@@ -1,0 +1,201 @@
+h1 {
+  margin: 15px 0 30px 0;
+  font-size: 48px;
+  font-weight: bold;
+  font-stretch: condensed;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+h2 {
+  margin: 30px 0 30px 0px;
+  font-size: 36px;
+  font-weight: bolder;
+  font-stretch: condensed;
+  line-height: normal;
+  letter-spacing: -0.07px;
+  text-align: center;
+}
+
+body {
+  background-image: url("../../../../assets/test-background.svg") !important;
+  background-size: cover !important;
+}
+
+.rectangle {
+  width: 450px;
+  margin: auto;
+  padding: 15px 10px 15px 40px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+.question {
+  margin: 60px 0 150px;
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+}
+
+.question-content {
+  margin: 20px 0 15px 0;
+  font-size: 18px;
+  font-stretch: condensed;
+  text-align: center;
+  color: #333;
+}
+
+hr {
+  width: 75%;
+  height: 2px;
+  box-shadow: inset 0 1px 0 0 #ccc;
+}
+
+@mixin my-radio-button($size, $dot-size) {
+  display: inline-block;
+  position: relative;
+  padding-left: $size + 20px;
+  margin-bottom: $size - 10px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .checkmark-0,
+  .checkmark-1,
+  .checkmark-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      top: $dot-size;
+      left: $dot-size;
+      width: $size * 0.5;
+      height: $size * 0.5;
+      border-radius: 50%;
+      background: white;
+    }
+  }
+
+  .checkmark-0 {
+    border: 5px solid #b16a6a;
+    background-color: #e1dfdf;
+  }
+  .checkmark-1 {
+    border: 5px solid #523af2;
+    background-color: #e6e3f7;
+  }
+  .checkmark-2 {
+    border: 5px solid #49a72a;
+    background-color: #f3f9f2;
+  }
+
+  &:hover input ~ .checkmark-0,
+  &:hover input ~ .checkmark-1,
+  &:hover input ~ .checkmark-2 {
+    background-color: #ccc;
+  }
+
+  input:checked ~ .checkmark-0 {
+    background-color: #b16a6a;
+    box-shadow: 0 0 0 0.5em #c9a6a6;
+  }
+
+  input:checked ~ .checkmark-1 {
+    background-color: #523af2;
+    box-shadow: 0 0 0 0.5em #b4adda;
+  }
+
+  input:checked ~ .checkmark-2 {
+    background-color: #49a72a;
+    box-shadow: 0 0 0 0.5em #adcca7;
+  }
+
+  input:checked ~ .checkmark-0:after,
+  input:checked ~ .checkmark-1:after,
+  input:checked ~ .checkmark-2:after {
+    display: block;
+  }
+}
+
+.radio-1 {
+  @include my-radio-button(45px, 6.75px);
+}
+.radio-2 {
+  @include my-radio-button(40px, 5px);
+}
+.radio-3 {
+  @include my-radio-button(35px, 4px);
+}
+.radio-4 {
+  @include my-radio-button(30px, 3px);
+}
+.radio-0 {
+  @include my-radio-button(30px, 3px);
+}
+
+.submit-button {
+  width: 210px;
+  height: 50px;
+  padding: 16px 0px 16px 0px;
+  cursor: pointer;
+  margin: 0 5px;
+  font-stretch: condensed;
+  font-size: 18px;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: center;
+  background-color: #ea212e;
+  color: #fff;
+  border: none;
+}
+
+.d-block {
+  display: block;
+  animation: fade_in_show 0.5s;
+}
+
+.agree {
+  color: #49a72a;
+}
+.disagree {
+  color: #523af2;
+}
+
+.agree,
+.disagree {
+  margin-top: 10px;
+  font-size: 18px;
+  font-stretch: condensed;
+  text-align: center;
+}
+
+@keyframes fade_in_show {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,235 @@
+<div *ngIf="user$ | async as user" class="container text-dark">
+  <div class="main-body">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img
+                src="{{ user?.profileImageUrl }}"
+                alt="Admin"
+                class="rounded-circle p-1 bg-gray"
+                width="135"
+              />
+              <div
+                *ngIf="fileStatus?.status === 'progress'"
+                class="progress mt-1"
+              >
+                <div
+                  class="progress-bar bg-accent"
+                  role="progressbar"
+                  [style.width.%]="fileStatus?.percentage"
+                  aria-valuenow="75"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  {{ fileStatus?.percentage }}%
+                </div>
+              </div>
+              <div class="mt-3">
+                <h4>{{ user?.firstName }} {{ user?.lastName }}</h4>
+                <p class="text-secondary mb-1">{{ user?.username }}</p>
+                <div
+                  *ngIf="user?.lastLoginDateDisplay !== null"
+                  class="text-muted mt-3 mb-2"
+                >
+                  <small
+                    >Last login:
+                    {{ user?.lastLoginDateDisplay | date: "medium" }}</small
+                  >
+                </div>
+                <div class="text-center text-sm-right">
+                  <div class="text-muted mb-3">
+                    <small
+                      >Joined {{ user?.joinDate | date: "mediumDate" }}</small
+                    >
+                  </div>
+                </div>
+                <div class="center">
+                  <button
+                    (click)="updateProfileImage()"
+                    class="btn btn-secondary my-3"
+                    type="button"
+                  >
+                    <i class="fa fa-fw fa-camera"></i>
+                    <span>&nbsp; Change Photo</span>
+                  </button>
+                </div>
+                <div class="center">
+                  <button (click)="onLogout()" class="btn btn-primary">
+                    <span>&nbsp; Logout</span>
+                    <i class="fas fa-sign-in-alt ml-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <app-personality-info></app-personality-info>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="tab-content pt-3">
+              <div class="tab-pane active">
+                <form
+                  [formGroup]="profileUserForm"
+                  (ngSubmit)="onSave()"
+                  class="form"
+                  novalidate
+                >
+                  <div class="row">
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label class="my-2">First Name</label>
+                            <input
+                              type="text"
+                              maxlength="30"
+                              class="form-control"
+                              formControlName="firstName"
+                              placeholder="FirstName"
+                              [ngClass]="{
+                                'is-invalid': isFirstNameInvalid,
+                                'is-valid': isFirstNameValid
+                              }"
+                            />
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label class="my-2"> Last Name</label>
+                            <input
+                              type="text"
+                              maxlength="30"
+                              class="form-control"
+                              formControlName="lastName"
+                              placeholder="LastName"
+                              [ngClass]="{
+                                'is-invalid': isLastNameInvalid,
+                                'is-valid': isLastNameValid
+                              }"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label class="my-2">Username</label>
+                            <input
+                              type="text"
+                              maxlength="30"
+                              class="form-control"
+                              formControlName="username"
+                              placeholder="Username"
+                              [ngClass]="{
+                                'is-invalid': isUsernameInvalid,
+                                'is-valid': isUsernameValid
+                              }"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label class="my-2">Email</label>
+                            <input
+                              type="text"
+                              maxlength="30"
+                              class="form-control"
+                              formControlName="email"
+                              placeholder="Email"
+                              [ngClass]="{
+                                'is-invalid': isEmailInvalid,
+                                'is-valid': isEmailValid
+                              }"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="isAdmin$ | async" class="row">
+                        <div class="col mb-3">
+                          <div class="form-group">
+                            <label class="my-2">Role</label>
+                            <select
+                              formControlName="role"
+                              class="form-control"
+                              *ngIf="user$ | async; let user"
+                            >
+                              <option selected>{{ user.role }}</option>
+                              <option
+                                *ngFor="let role of roleOptions"
+                                value="role.value"
+                              >
+                                {{ role.label }}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-sm-5 offset-sm-1 mb-3">
+                      <div class="my-2">
+                        <b>Account Settings</b>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div class="custom-controls-stacked px-2">
+                            <div class="form-check">
+                              <input
+                                mdbCheckbox
+                                class="form-check-input"
+                                formControlName="enabled"
+                                type="checkbox"
+                              />
+                              <label class="form-check-label" for="enabled">
+                                Active
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input
+                                mdbCheckbox
+                                class="form-check-input"
+                                formControlName="nonLocked"
+                                type="checkbox"
+                              />
+                              <label class="form-check-label" for="nonLocked">
+                                Non locked
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col d-flex justify-content-end">
+                      <button
+                        class="btn btn-secondary"
+                        type="submit"
+                        [disabled]="profileUserForm.invalid"
+                      >
+                        <i *ngIf="refreshing" class="fas fa-spinner fa-spin"></i
+                        >&nbsp;&nbsp;
+                        <span *ngIf="refreshing">Loading...</span>
+                        <span *ngIf="!refreshing">Save Changes</span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <app-score></app-score>
+      </div>
+    </div>
+  </div>
+</div>

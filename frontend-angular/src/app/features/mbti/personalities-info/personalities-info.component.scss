@@ -1,0 +1,84 @@
+@mixin header($size) {
+  //background-color: var(--mdb-danger);
+  //background-color: #2d8079;
+  text-align: center;
+  position: relative;
+  font-size: $size * 0.2;
+  line-height: $size * 0.5;
+  color: #fff;
+  font-weight: bold;
+}
+
+.personality {
+  @include header(200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin-bottom: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+.title-text {
+  color: #2d8079;
+  font-weight: bolder;
+}
+
+.card-bg {
+  background-color: #f8f9f8;
+}
+
+.text-lightblack {
+  color: #5f5d5d;
+}
+
+.bg-c1 {
+  background-color: #2d8079;
+}
+.bg-c2 {
+  background-color: #4e755e;
+}
+.bg-c3 {
+  background-color: #3d5a77;
+}
+.bg-c4 {
+  background-color: #90640c;
+}
+.bg-c5 {
+  background-color: #415f90;
+}
+.bg-c6 {
+  background-color: #415f90;
+}
+.bg-c7 {
+  background-color: #644b73;
+}
+.bg-c8 {
+  background-color: #794798;
+}
+.bg-c9 {
+  background-color: #e64965;
+}
+.bg-c10 {
+  background-color: #5f3679;
+}
+.bg-c11 {
+  background-color: #de7830ed;
+}
+.bg-c12 {
+  background-color: #357186;
+}
+.bg-c13 {
+  background-color: #ef2f53;
+}
+.bg-c14 {
+  background-color: #9c7322;
+}
+.bg-c15 {
+  background-color: #864b56;
+}
+.bg-c16 {
+  background-color: #4a6755;
+}

@@ -1,0 +1,125 @@
+<div class="container text-dark" style="margin-top: 20px">
+  <div class="d-flex justify-content-center">
+    <div class="col-md-7 col-sm-12">
+      <div class="card-group mb-0">
+        <div class="card user_card p-2">
+          <div
+            class="
+              d-flex
+              flex-column
+              justify-content-center
+              align-items-center
+              my-5
+            "
+          >
+            <div>
+              <h3>Lunatech MBTI</h3>
+            </div>
+            <div
+              *ngIf="
+                this.loginForm.valid &&
+                (this.onLoginError$ | async) as onLoginError
+              "
+              class="error-message mb-4 align-self-stretch"
+            >
+              {{ onLoginError }}
+            </div>
+          </div>
+          <div class="h-100 d-flex justify-content-center form_container">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+              <div class="mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="fas fa-user"></i
+                  ></span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="username"
+                    placeholder="Username"
+                    [ngClass]="{
+                      'is-invalid': isUsernameInvalid
+                    }"
+                  />
+                  <div
+                    *ngIf="isUsernameInvalid"
+                    class="invalid-feedback validator-error mt-2"
+                  >
+                    <div *ngIf="username.errors?.required">
+                      <i class="fas fa-window-close"></i>&nbsp; Username is
+                      required.
+                    </div>
+                    <div *ngIf="username.errors?.minlength">
+                      <i class="fas fa-window-close"></i>&nbsp; Username must be
+                      at least 5 characters long.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="fas fa-key"></i
+                  ></span>
+                  <input
+                    type="password"
+                    class="form-control"
+                    formControlName="password"
+                    placeholder="Password"
+                    [ngClass]="{
+                      'is-invalid': isPasswordInvalid
+                    }"
+                  />
+                  <div
+                    *ngIf="isPasswordInvalid"
+                    class="invalid-feedback validator-error mt-2"
+                  >
+                    <div *ngIf="password.errors?.required">
+                      <i class="fas fa-window-close"></i>&nbsp; Password is
+                      required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center mt-5 login_container">
+                <button
+                  type="submit"
+                  name="button"
+                  class="btn btn-primary"
+                  [disabled]="loginForm.invalid"
+                >
+                  <span>Login</span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="mt-4">
+            <div class="d-flex justify-content-center mb-4">
+              <button type="button" class="btn btn-link px-0">
+                Forgot password?
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-lightgray py-5 d-md-down-none">
+          <div class="card-body text-center my-5">
+            <div class="h-100 d-flex flex-column justify-content-center">
+              <h2>Sign up</h2>
+              <div class="text-center">Don't have an account?</div>
+              <button
+                type="button"
+                routerLink="/auth/register"
+                class="btn btn-primary mt-5"
+              >
+                Register Now!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
