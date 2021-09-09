@@ -6,11 +6,11 @@ const app = express();
 
 const port = process.env.PORT || 3001;
 
-app.use(express.static("../public"));
+app.use(express.static("./public"));
 
 app.get("/*", (req, res) => res.sendFile(path.join(__dirname)));
 
 const server = http.createServer(app);
 
-server.listen(port, () => console.log("Running..."));
+server.listen(port, () => console.log("MBTI Assessment App is running..."));
 console.log(__dirname);
