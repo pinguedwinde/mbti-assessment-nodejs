@@ -1,8 +1,8 @@
 {
   "build": {
-    "goal": "clean package"
+    "goal": "-Pclever-cloud clean package"
   },
   "deploy": {
-    "goal": "spring-boot:run -Dspring-boot.run.profiles=clever-cloud"
+    "goal": "-Pclever-cloud spring-boot:run"
   }
 }
