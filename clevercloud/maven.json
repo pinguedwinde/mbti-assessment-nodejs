@@ -3,6 +3,6 @@
     "goal": "clean package"
   },
   "deploy": {
-    "goal": "spring-boot:run"
+    "goal": "spring-boot:run -Dspring-boot.run.profiles=clever-cloud"
   }
 }
